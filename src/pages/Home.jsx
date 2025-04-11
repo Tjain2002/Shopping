@@ -34,7 +34,7 @@ const Home = () => {
         {
             loading ? <Spinner></Spinner> :
                 posts.length > 0 ?
-                    (<div className="grid  xs:grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 p-2  space-y-10 space-x-5  mx-auto w-[1200px] min-h-[80vh]" >
+                    (<div className="grid  xs:grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-20 p-2  space-y-10 space-x-5  mx-auto w-[1200px] min-h-[80vh]" >
 
                         {
                                  posts.map((post)=>

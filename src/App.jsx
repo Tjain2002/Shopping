@@ -7,7 +7,7 @@ import Login from "./Components/Login";
 const App = () => {
   return (
     <div>
-  <div className="min-h-screen w-full">
+  <div className="w-full">
   <Navbar  >
     </Navbar>  
 

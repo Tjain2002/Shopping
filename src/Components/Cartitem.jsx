@@ -18,7 +18,7 @@ const CartItem = ({item,itemIndex}) => {
   <div className="">
 
 
-    <div className="flex   justify-center gap-x-5 items-center border-b-2 w-full h-[300px]  mb-3 *:">
+    <div className="flex   justify-center  gap-x-5 items-center border-b-2 w-full h-[300px]  mb-3 ">
 
 
 
