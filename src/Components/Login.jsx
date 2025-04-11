@@ -12,14 +12,20 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Fake login (no API)
+
     if (username && password) {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('username', username);
-      toast.success("login sccessfully");
-     
+    
+      // Dispatch event to notify Navbar
+      window.dispatchEvent(new Event("loginStatusChanged"));
+    
+      toast.success("login successfully");
       navigate('/');
-    } else {
+    }
+    
+    // Fake login (no API)
+   else {
       alert('Please enter both fields');
     }
   };
@@ -31,41 +37,41 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center mt-20">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="w-full max-w-sm bg-white p-6 rounded shadow-md">
+      <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+  
       <form onSubmit={handleLogin} className="flex flex-col gap-3">
         <input
           type="text"
           placeholder="Username"
-          className="p-2 border"
+          className="p-2 border border-gray-300 rounded"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
-          className="p-2 border"
+          className="p-2 border border-gray-300 rounded"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" className="bg-gray-500 text-white px-4 py-2 rounded">
+        <button
+          type="submit"
+          className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition"
+        >
           Login
         </button>
       </form>
-<div className='mt-6'>     
-
-
-<Link to="/">
-<button>Skip</button>
-
-</Link>
-
-     {/* <Navlink ></Navlink> */}
-    
-
-</div>
-
+  
+      <div className="mt-4 text-center">
+        <Link to="/">
+          <button className="text-blue-600 hover:underline">Skip</button>
+        </Link>
+      </div>
     </div>
+  </div>
+  
   );
 };
 

@@ -12,18 +12,31 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLogged = localStorage.getItem("isLoggedIn") === "true";
-    setIsLoggedIn(isLogged);
+    const updateLoginStatus = () => {
+      const isLogged = localStorage.getItem("isLoggedIn") === "true";
+      setIsLoggedIn(isLogged);
+    };
+  
+    updateLoginStatus(); // call initially
+    window.addEventListener("loginStatusChanged", updateLoginStatus);
+  
+    return () => {
+      window.removeEventListener("loginStatusChanged", updateLoginStatus);
+    };
   }, []);
+  
 
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("username");
+  
+    window.dispatchEvent(new Event("loginStatusChanged")); // Notify Navbar
+  
     toast.success("Logout successfully");
-    setIsLoggedIn(false);
     navigate("/login");
     setMenuOpen(false);
   };
+  
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -56,7 +69,7 @@ const Navbar = () => {
               Login
             </NavLink>
           ) : (
-            <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-1 rounded">
+            <button onClick={handleLogout} className="bg-white text-black px-3 py-1 rounded">
               Logout
             </button>
           )}
@@ -80,7 +93,7 @@ const Navbar = () => {
               Login
             </NavLink>
           ) : (
-            <button onClick={handleLogout} className="bg-gray-500 text-white px-3 py-1 rounded">
+            <button onClick={handleLogout} className="bg-white text-black px-3 py-1 rounded">
               Logout
             </button>
           )}

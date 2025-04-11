@@ -6,8 +6,8 @@ import { Route } from "react-router-dom";
 import Login from "./Components/Login";
 const App = () => {
   return (
-    <div>
-  <div className="w-full">
+    <div className="max-h-full">
+  <div className="">
   <Navbar  >
     </Navbar>  
 
