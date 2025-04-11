@@ -15,10 +15,10 @@ const CartItem = ({item,itemIndex}) => {
   }
   return (
   
-  <div className="">
+  <div className="max-h-full">
 
 
-    <div className="flex   justify-center  gap-x-5 items-center border-b-2 w-full h-[300px]  mb-3 ">
+    <div className="flex    justify-center  gap-x-5 items-center border-b-2 w-full h-[300px]  mb-3  mt-[50px]">
 
 
 
@@ -34,7 +34,7 @@ const CartItem = ({item,itemIndex}) => {
         <div className="flex justify-between">
         <div className="mt-3">
 
-<p className="fixed">${item.price}</p>
+<p className="">${item.price}</p>
 </div>
 
 <div  className="text-red-600 cursor-pointer mt-4    w-[25px] h-[25px] bg-red-400 rounded-full " onClick={removefromcart}>

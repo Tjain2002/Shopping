@@ -14,7 +14,7 @@ const Cart = () => {
 
 
   }, [cart]) 
-  return( <div className="flex justify-center items-center  mt-4 mx-auto ">
+  return( <div className="flex justify-center items-center  mt-[30px] mx-auto ">
 
     {
       cart.length > 0 ?

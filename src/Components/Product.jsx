@@ -28,8 +28,8 @@ const[selected ,setselected] = useState();
 
 const description=  post.description.substring(0,70);
 const title= post.title.substring(0,14);
-  return <div className=" flex flex-col   items-center justify-between     
-hover:scale-110 transition  duration-200 ease-in gap-3   p-4 mt-14 ml-5 rounded-xl 
+  return <div className="   flex flex-col   items-center justify-between     
+hover:scale-110 transition  duration-200 ease-in gap-3   p-4 mt-[40px] ml-5 rounded-xl 
 
 
 
